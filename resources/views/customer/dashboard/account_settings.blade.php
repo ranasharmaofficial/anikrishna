@@ -94,9 +94,9 @@
 						@csrf
 						<div class="row row-cols-1 row-cols-sm-2 g-4 mb-4">
 						  <div class="col position-relative">
-							<label for="fn" class="form-label fs-base">Company name *</label>
-							<input type="text" class="form-control form-control-lg" id="fn" name="company_name" value="{{ $customerDetails->company_name }}" required>
-							<div class="invalid-tooltip bg-transparent p-0">Enter your first name!</div>
+							<label for="fn" class="form-label fs-base">Family name *</label>
+							<input type="text" class="form-control form-control-lg" id="fn" name="family_name" value="{{ $customerDetails->family_name }}" required>
+							<div class="invalid-tooltip bg-transparent p-0">Enter your Family name!</div>
 						  </div>
 						  <div class="col position-relative">
 							<label for="ln" class="form-label fs-base">First name *</label>

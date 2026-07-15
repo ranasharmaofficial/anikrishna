@@ -148,11 +148,12 @@ class AuthController extends Controller
     public function postRegistration(Request $request){
         // dd("I am here");
         // dd($request->all());
-        $userType = $request->user_type;
+        $userType = 2;
 
         $request->validate([
+            'family_name' => 'required',
             'first_name' => 'required',
-            'user_type' => 'required',
+            // 'user_type' => 'required',
             'email' => [
                 'required',
                 'email',
@@ -174,6 +175,8 @@ class AuthController extends Controller
         ]);
 
         $data = $request->all();
+        $data['user_type'] = $userType;
+        $data['family_name'] = $data['family_name'];
         $check = $this->create($data);
         if($check){
             $user_login = UserLogin::create([
@@ -185,9 +188,17 @@ class AuthController extends Controller
                 'user_designation_id' => $data['user_type'],
                 'status' => 1,
             ]);
+
+            $is_loggedin = User::join('user_logins', 'user_logins.user_id', '=', 'users.id')
+                ->where('users.id', $check->id)
+                ->select(['users.*', 'user_logins.*'])
+                ->first();
+
+            $request->session()->put('LoggedCustomer', $is_loggedin);
             return response()->json([
                 "status" => true,
-                "message" => "Successfully Registered."
+                "message" => "Successfully Registered.",
+                "redirect" => route('customer.dashboard'),
             ]);
         }else {
             return response()->json([
@@ -200,6 +211,7 @@ class AuthController extends Controller
     public function create(array $data){
         return User::create([
             'first_name' => $data['first_name'],
+            'family_name' => $data['family_name'],
             'mobile' => $data['mobile'],
             'email' => $data['email'],
             'status' => 1,

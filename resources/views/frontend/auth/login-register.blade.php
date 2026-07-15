@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="banner-bg">
-        <img src="assets/images/volunteer-bg.png" alt="Image">
+        <img src="{{ static_asset('assets/assets_web/images/volunteer-bg.png') }}" alt="Image">
     </div>
 </section>
 <style>
@@ -112,6 +112,11 @@
             <div id="show-register-form-error" class="alert alert-danger" style="display:none"><div class="register-errors"></div></div>
             <div class="auth_input_group">
                 <i class="fa fa-user"></i>
+                <input type="text" name="family_name" placeholder="Family Name" required>
+            </div>
+			
+			<div class="auth_input_group">
+                <i class="fa fa-user"></i>
                 <input type="text" name="first_name" placeholder="Full Name" required>
             </div>
 
@@ -123,16 +128,6 @@
             <div class="auth_input_group">
                 <i class="fa fa-phone"></i>
                 <input type="text" name="mobile" placeholder="Mobile Number" required>
-            </div>
-
-            <div class="auth_input_group">
-                <i class="fa fa-users"></i>
-                <select name="user_type" required>
-                    <option value="">Select Account Type</option>
-                    @foreach($user_types as $user_type)
-                        <option value="{{ $user_type->id }}">{{ $user_type->name }}</option>
-                    @endforeach
-                </select>
             </div>
 
             <div class="auth_input_group">
@@ -349,6 +344,7 @@
 					document.getElementById('show-register-form-error').style = "display: none";
 					clk_btn.prop('disabled', false).text('Register Now');
 					showTab('loginForm');
+					window.location.href = data.redirect;
                 } else {
 					clk_btn.prop('disabled', false).text('Register Now');
 					Swal.fire({

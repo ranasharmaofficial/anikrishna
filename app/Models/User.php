@@ -57,6 +57,7 @@ class User extends Authenticatable
         'payment_qr',
         'about',
         'company_name',
+        'family_name',
     ];
 
     /**

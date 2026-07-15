@@ -55,7 +55,7 @@ class CustomerController extends Controller
         $customer = session('LoggedCustomer')->user_id;
         // dd($customer);
         $update_user = User::where('id', $customer)->first();
-        $update_user->company_name = $request->company_name;
+        $update_user->family_name = $request->family_name;
         $update_user->first_name = $request->first_name;
         $update_user->mobile = $request->mobile;
         $update_user->email = $request->email;
