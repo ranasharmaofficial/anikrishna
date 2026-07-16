@@ -61,8 +61,8 @@ class ProductCategoryController extends Controller
         if($request->has('image')){
             $name = $request->image->getClientOriginalName();
             $imageName = time().rand(1,999).'.'.$name;
-            $request->image->move(public_path('uploads/category'), $imageName);
-            $data['image'] = 'uploads/category/'.$imageName;
+            $request->image->move(public_path('uploads/all'), $imageName);
+            $data['image'] = 'uploads/all/'.$imageName;
         }else{
             $data['image'] = NULL;
         }
@@ -128,8 +128,8 @@ class ProductCategoryController extends Controller
         if($request->has('image')){
             $name = $request->image->getClientOriginalName();
             $imageName = time().rand(1,999).'.'.$name;
-            $request->image->move(public_path('uploads/category'), $imageName);
-            $data['image'] = 'uploads/category/'.$imageName;
+            $request->image->move(public_path('uploads/all'), $imageName);
+            $data['image'] = 'uploads/all/'.$imageName;
         }else{
             $data['image'] = NULL;
         }

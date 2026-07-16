@@ -314,7 +314,7 @@
 						<div class="rtp-agent-widget">
 							<span class="rtp-preferred-badge">Preferred Agent</span>
 							<div class="rtp-agent-profile">
-								<img src="{{ static_asset('uploads/profile/'.$val->profile_pic) }}" alt="{{ $val->company_name }}" class="rtp-agent-avatar">
+								<img src="{{ static_asset('uploads/all/'.$val->profile_pic) }}" alt="{{ $val->company_name }}" class="rtp-agent-avatar">
 								<div class="rtp-agent-info">
 									<h4>{{ $val->first_name }}</h4>
 									<p>{{ $val->company_name }} • Operating since {{ date('Y', strtotime($val->created_at)) }}</p>

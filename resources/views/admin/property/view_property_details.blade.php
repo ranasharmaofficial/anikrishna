@@ -255,7 +255,7 @@
 
         @foreach($property->images as $image)
 
-            <img src="{{ static_asset('uploads/property/'.$image->image) }}">
+            <img src="{{ static_asset('uploads/all/'.$image->image) }}">
 
         @endforeach
 
@@ -275,7 +275,7 @@
         @foreach($property->videos as $video)
 
             <video controls preload="metadata" style="width:100%;max-width:360px;height:220px;object-fit:cover">
-                <source src="{{ static_asset('uploads/property/videos/'.$video->video) }}">
+                <source src="{{ static_asset('uploads/all/'.$video->video) }}">
             </video>
 
         @endforeach

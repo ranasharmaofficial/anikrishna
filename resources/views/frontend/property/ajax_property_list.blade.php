@@ -19,7 +19,7 @@
 										@endif
 
 										@if($firstImage)
-											<img src="{{ static_asset('uploads/property/'.$firstImage->image) }}"
+											<img src="{{ static_asset('uploads/all/'.$firstImage->image) }}"
 												 alt="{{ $val->property_title ?? 'Property Image' }}"
 												 class="rtp-prop-img">
 										@else

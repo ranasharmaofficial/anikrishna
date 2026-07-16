@@ -73,8 +73,9 @@
                 $img->encode('webp', 95);
 
                 $filename = $folder_name . '-' . date('YmdHis') . '-' . rand(1,10000) . '.webp';
-                $file_path = 'uploads/' . $folder_name . '/' . $filename;
+                $file_path = 'uploads/all/' . $filename;
 
+                \Illuminate\Support\Facades\File::ensureDirectoryExists(public_path('uploads/all'));
                 $img->save(public_path($file_path));
                 return $file_path;
             }
@@ -82,8 +83,9 @@
             if ($type == "local") {
                 $extenstion = $file_name->getClientOriginalExtension();
                 $filename = $folder_name. '-' . date('YmdHis') . '-' .rand(1,10000). '.' . $extenstion;
-                $file_name->move(public_path('uploads/'.$folder_name), $filename);
-                $file_path = 'uploads/'.$folder_name.'/'. $filename;
+                \Illuminate\Support\Facades\File::ensureDirectoryExists(public_path('uploads/all'));
+                $file_name->move(public_path('uploads/all'), $filename);
+                $file_path = 'uploads/all/'. $filename;
                 return $file_path;
             }
 
@@ -525,7 +527,7 @@ if (!function_exists('certificate_list')){
             if ($file) {
                 $name = $prefix . '_' . time() . '.' . $file->getClientOriginalExtension();
                 $file->move($uploadPath, $name);
-                return 'uploads/user_documents/' . $name;
+                return 'uploads/all/' . $name;
             }
             return null;
         }
@@ -546,7 +548,7 @@ if (!function_exists('certificate_list')){
             $name = $prefix . '_' . time() . '.' . $file->getClientOriginalExtension();
             $file->move($uploadPath, $name);
 
-            return 'uploads/user_documents/' . $name;
+            return 'uploads/all/' . $name;
         }
 
         /**

@@ -38,8 +38,8 @@
 						<div class="col-md-4">
 							<div class="more104 project-block_one-inner wow fadeInRight animated" data-wow-delay="300ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInRight;">
 								<div class=" project-block_one-image">
-									<a href="{{ static_asset('uploads/gallery/'.$val->image) }}" class="glightbox" data-gallery="floorplans">
-										<img src="{{ static_asset('uploads/gallery/'.$val->image) }}" class="img-fluid" alt="Floor Plan 1">
+									<a href="{{ static_asset('uploads/all/'.$val->image) }}" class="glightbox" data-gallery="floorplans">
+										<img src="{{ static_asset('uploads/all/'.$val->image) }}" class="img-fluid" alt="Floor Plan 1">
 									</a>
 								</div>
 							</div>

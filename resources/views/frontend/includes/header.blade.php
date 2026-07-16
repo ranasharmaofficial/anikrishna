@@ -178,7 +178,7 @@
                                  class="navbar__dropdown-label dropdown-label-alter">Publication Archives</a>
                               <ul class="navbar__sub-menu">
                                  <li>
-                                    <a href="{{ url('current-issue') }}">current issue</a>
+                                    <a href="{{ url('latest-publication') }}">current issue</a>
                                  </li>
                                  <li>
                                     <a href="#">Archives Issue</a>

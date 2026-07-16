@@ -36,7 +36,7 @@
             <div class="member_dash_user">
 
                 <div class="member_dash_user_img">
-                    <img src="{{ !empty($customerDetails->profile_pic) ? static_asset('uploads/profile/'.$customerDetails->profile_pic) : static_asset('assets/assets_web/img/default-user.png') }}" alt="">
+                    <img src="{{ !empty($customerDetails->profile_pic) ? static_asset('uploads/all/'.$customerDetails->profile_pic) : static_asset('assets/assets_web/img/default-user.png') }}" alt="">
                 </div>
 
                 <div class="member_dash_user_info">
@@ -95,7 +95,7 @@
             <!-- User info -->
             <section class="pb-5 mb-md-3">
               <div class="ratio ratio-1x1 bg-body-tertiary border rounded-circle overflow-hidden mb-3 mb-md-4" style="width: 124px">
-                <img src="{{ !empty($customerDetails->profile_pic) ? static_asset('uploads/profile/'.$customerDetails->profile_pic) : static_asset('assets/assets_web/img/default-user.png') }}" alt="Avatar">
+                <img src="{{ !empty($customerDetails->profile_pic) ? static_asset('uploads/all/'.$customerDetails->profile_pic) : static_asset('assets/assets_web/img/default-user.png') }}" alt="Avatar">
               </div>
               <h2 class="h5 pb-1 pb-sm-0 mb-2 mb-sm-3">{{ $customerDetails->company_name }}</h2>
               <ul class="list-unstyled flex-row flex-wrap gap-sm-3 fs-sm mb-3">

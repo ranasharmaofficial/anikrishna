@@ -2,7 +2,7 @@
     <aside class="member_dash_sidebar">
 
         <div class="member_dash_profile">
-            <img src="{{ !empty($customerDetails->profile_pic) ? static_asset('uploads/profile/'.$customerDetails->profile_pic) : static_asset('assets/assets_web/img/default-user.png') }}" alt="">
+            <img src="{{ !empty($customerDetails->profile_pic) ? static_asset('uploads/all/'.$customerDetails->profile_pic) : static_asset('assets/assets_web/img/default-user.png') }}" alt="">
             <h3>{{ $customerDetails->first_name }}</h3>
             <p>{{ $customerDetails->email }}</p>
             <p>{{ $customerDetails->mobile }}</p>
@@ -19,13 +19,13 @@
             <li>
                 <a href="{{ route('customer.addPost') }}">
                     <i class="fa-regular fa-newspaper"></i>
-                    <span>Add Post</span>
+                    <span>Add Submission</span>
                 </a>
             </li>
 			<li>
-                <a href="#">
+                <a href="{{ route('customer.posts.index') }}">
                     <i class="fa-regular fa-newspaper"></i>
-                    <span>Latest News</span>
+                    <span>My Submissions</span>
                 </a>
             </li>
 
@@ -45,7 +45,3 @@
         </ul>
 
     </aside>
-	
-	
-	
-	 

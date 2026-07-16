@@ -113,7 +113,7 @@
 															<td>{{ $row->employee_code }}</td>
 															<td>{{ $row->paying_area }}</td>
 															<td>{{ $row->utr_no }}</td>
-															<td><a href="{{ static_asset('uploads/screenshot/'.$row->screenshot) }}" target="_blank"><img src="{{ static_asset('uploads/screenshot/'.$row->screenshot) }}" class="img-fluid" style="height:70px;" alt=""></a></td>
+															<td><a href="{{ static_asset('uploads/all/'.$row->screenshot) }}" target="_blank"><img src="{{ static_asset('uploads/all/'.$row->screenshot) }}" class="img-fluid" style="height:70px;" alt=""></a></td>
 															<td>₹&nbsp;{{ $row->amount }}</td>
 															<td>₹&nbsp;{{ $row->commission }}</td>
 															<td>₹&nbsp;{{ $row->admin_charge }}</td>

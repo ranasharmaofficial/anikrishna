@@ -95,8 +95,8 @@ class MasterAgreementController extends Controller
         if ($request->hasFile('file')) {
             $ext = $request->file->getClientOriginalExtension();
             $fileName = time() . rand(1, 999) . '.' . $ext;
-            $request->file->move(public_path('uploads/agreement'), $fileName);
-            $data['file'] = 'uploads/agreement/' . $fileName;
+            $request->file->move(public_path('uploads/all'), $fileName);
+            $data['file'] = 'uploads/all/' . $fileName;
         } else {
             $data['file'] = NULL;
         }
@@ -139,8 +139,8 @@ class MasterAgreementController extends Controller
         if ($request->hasFile('file')) {
             $ext = $request->file->getClientOriginalExtension();
             $fileName = time() . rand(1, 999) . '.' . $ext;
-            $request->file->move(public_path('uploads/agreement'), $fileName);
-            $data['file'] = 'uploads/agreement/' . $fileName;
+            $request->file->move(public_path('uploads/all'), $fileName);
+            $data['file'] = 'uploads/all/' . $fileName;
         } else {
             $data['file'] = NULL;
         }

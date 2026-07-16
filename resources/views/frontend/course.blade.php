@@ -44,7 +44,7 @@ Courses
 							<div class="item-inner">
 								<div class="item-img position-relative">
 									<div class="inner-img">
-										<img src="{{ static_asset('uploads/courses/'.$item->courseImage) }}" alt="">
+										<img src="{{ static_asset('uploads/all/'.$item->courseImage) }}" alt="">
 									</div>
 									<span class="sale_tag">Admission Open</span>
 								</div>
@@ -124,7 +124,7 @@ Courses
                     <div class="it-course-item ed-course-style-2">
                         <div class="it-course-thumb mb-25 p-relative">
                             <a href="{{ url('course/'.$item->slug) }}">
-                                <img src="{{ static_asset('uploads/courses/'.$item->courseImage) }}"
+                                <img src="{{ static_asset('uploads/all/'.$item->courseImage) }}"
                                     alt=""></a>
                         </div>
                         <div class="it-course-content p-relative">

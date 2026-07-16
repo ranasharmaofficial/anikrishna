@@ -54,7 +54,7 @@
 										<tr>
 											<td>{{ $key + 1 }}</td>
 											<td>{{ $value->courseTitle }}</td>
-											<td class="text-black"><img height="60" src="{{ static_asset('uploads/courses/'.$value->courseImage) }}"></td>
+											<td class="text-black"><img height="60" src="{{ static_asset('uploads/all/'.$value->courseImage) }}"></td>
 											<td>
 												<div class="actions"> @if($value->status == 1) <a href="#" class="btn btn-sm bg-success-light mr-2">Active</a> @else <a href="#" class="btn btn-sm bg-danger-light mr-2">Inactive</a> @endif </div>
 											</td>

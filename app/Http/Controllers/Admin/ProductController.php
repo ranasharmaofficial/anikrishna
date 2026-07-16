@@ -211,8 +211,8 @@ class ProductController extends Controller
             if($request->has('thumbnail')){
                 $name = $request->thumbnail->getClientOriginalName();
                 $imageName = time().rand(1,999).'.'.$name;
-                $request->thumbnail->move(public_path('uploads/products'), $imageName);
-                $data['thumbnail'] = 'uploads/products/'.$imageName;
+                $request->thumbnail->move(public_path('uploads/all'), $imageName);
+                $data['thumbnail'] = 'uploads/all/'.$imageName;
             }else{
                 $data['thumbnail'] = NULL;
             }
@@ -251,8 +251,8 @@ class ProductController extends Controller
                 foreach($request->file('images') as $key => $file) {
                     $name = $file->getClientOriginalName();
                     $imageName = time().rand(1,999).'.'.$name;
-                    $file->move(public_path('uploads/products'), $imageName);
-                    $insert[$key]['image_path'] = 'uploads/products/'.$imageName;
+                    $file->move(public_path('uploads/all'), $imageName);
+                    $insert[$key]['image_path'] = 'uploads/all/'.$imageName;
                     $insert[$key]['product_id'] = $product->id;
                 }
 
@@ -352,8 +352,8 @@ class ProductController extends Controller
             if($request->has('thumbnail')){
                 $name = $request->thumbnail->getClientOriginalName();
                 $imageName = time().rand(1,999).'.'.$name;
-                $request->thumbnail->move(public_path('uploads/products'), $imageName);
-                $data['thumbnail'] = 'uploads/products/'.$imageName;
+                $request->thumbnail->move(public_path('uploads/all'), $imageName);
+                $data['thumbnail'] = 'uploads/all/'.$imageName;
             }else{
                 $data['thumbnail'] = NULL;
             }

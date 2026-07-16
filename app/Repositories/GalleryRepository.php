@@ -52,7 +52,7 @@ class GalleryRepository implements GalleryRepositoryInterface
            {
                $name = $file->getClientOriginalName();
                $imageName = time().rand(1,999).'.'.$name;
-               $file->move(public_path('uploads/gallery'), $imageName);
+               $file->move(public_path('uploads/all'), $imageName);
                $insert[$key]['image'] = $imageName;
                $insert[$key]['category_id'] = $data['category_id'];
            }
@@ -91,7 +91,7 @@ class GalleryRepository implements GalleryRepositoryInterface
 
                 // Convert to webp
                 $filename = time() . rand(1,999) . '.webp';
-                $path = public_path('uploads/gallery/' . $filename);
+                $path = public_path('uploads/all/' . $filename);
 
                 $img->encode('webp', 90)->save($path);
 

@@ -353,7 +353,7 @@ class MemberController extends Controller
             $saveNewMembership->save();
 
 			$image_file_name = null;
-            $uploadPath = public_path('uploads/members');
+            $uploadPath = public_path('uploads/all');
 
             $profile_pic = null; // default value
 
@@ -364,7 +364,7 @@ class MemberController extends Controller
 
                 $request->profile_pic->move($uploadPath, $image_file_name);
 
-                $profile_pic = 'uploads/members/' . $image_file_name;
+                $profile_pic = 'uploads/all/' . $image_file_name;
             }
 
             // Create Member
@@ -581,7 +581,7 @@ class MemberController extends Controller
             }
 
 			$image_file_name = null;
-            $uploadPath = public_path('uploads/members');
+            $uploadPath = public_path('uploads/all');
 
             $profile_pic = null; // default value
 
@@ -592,7 +592,7 @@ class MemberController extends Controller
 
                 $request->profile_pic->move($uploadPath, $image_file_name);
 
-                $profile_pic = 'uploads/members/' . $image_file_name;
+                $profile_pic = 'uploads/all/' . $image_file_name;
             }
 
 
@@ -1048,13 +1048,13 @@ class MemberController extends Controller
 
 
         $image_file_name = null;
-        $uploadPath = public_path('uploads/staff');
+        $uploadPath = public_path('uploads/all');
 
         if ($request->hasFile('profile_pic')) {
             $image_file_name = 'profile_pic' . time() . '.' . $request->profile_pic->getClientOriginalExtension();
             $request->profile_pic->move($uploadPath, $image_file_name);
 
-            $user->profile_pic = $image_file_name ? 'uploads/staff/' . $image_file_name : null;
+            $user->profile_pic = $image_file_name ? 'uploads/all/' . $image_file_name : null;
             $user->save();
         }
 
@@ -1538,7 +1538,7 @@ class MemberController extends Controller
 
 			$image_file_name = null;
 			$signature_file_name = null;
-            $uploadPath = public_path('uploads/staff');
+            $uploadPath = public_path('uploads/all');
 
             $profile_pic = null; // default value
 			$signature = null; // default value
@@ -1550,14 +1550,14 @@ class MemberController extends Controller
 
 				$request->profile_pic->move($uploadPath, $image_file_name);
 
-				$profile_pic = 'uploads/staff/' . $image_file_name;
+				$profile_pic = 'uploads/all/' . $image_file_name;
 			}
 
 			if ($request->hasFile('signature')) {
 				$signature_file_name = 'signature' . time() . '.' .
 					$request->signature->getClientOriginalExtension();
 				$request->signature->move($uploadPath, $signature_file_name);
-				$signature = 'uploads/staff/' . $signature_file_name;
+				$signature = 'uploads/all/' . $signature_file_name;
 			}
 
             /* --------------------------
@@ -1931,7 +1931,7 @@ class MemberController extends Controller
 
             $image_file_name = null;
             $signature_file_name = null;
-            $uploadPath = public_path('uploads/staff');
+            $uploadPath = public_path('uploads/all');
 
             $profile_pic = null; // default value
             $signature = null; // default value
@@ -1943,14 +1943,14 @@ class MemberController extends Controller
 
                 $request->profile_pic->move($uploadPath, $image_file_name);
 
-                $profile_pic = 'uploads/staff/' . $image_file_name;
+                $profile_pic = 'uploads/all/' . $image_file_name;
             }
 
             if ($request->hasFile('signature')) {
                 $signature_file_name = 'signature' . time() . '.' .
                     $request->signature->getClientOriginalExtension();
                 $request->signature->move($uploadPath, $signature_file_name);
-                $signature = 'uploads/staff/' . $signature_file_name;
+                $signature = 'uploads/all/' . $signature_file_name;
             }
 
             $user = new User();
@@ -2309,7 +2309,7 @@ class MemberController extends Controller
             --------------------------- */
 			$image_file_name = null;
 			$signature_file_name = null;
-            $uploadPath = public_path('uploads/staff');
+            $uploadPath = public_path('uploads/all');
 
             $profile_pic = null; // default value
 			$signature = null; // default value
@@ -2317,14 +2317,14 @@ class MemberController extends Controller
 			if ($request->hasFile('profile_pic')) {
 				$image_file_name = 'profile_pic_' . time() . '.' .$request->profile_pic->getClientOriginalExtension();
 				$request->profile_pic->move($uploadPath, $image_file_name);
-				$profile_pic = 'uploads/staff/' . $image_file_name;
+				$profile_pic = 'uploads/all/' . $image_file_name;
 			}
 
 			if ($request->hasFile('signature')) {
                 $signature_file_name = 'signature' . time() . '.' .
                     $request->signature->getClientOriginalExtension();
                 $request->signature->move($uploadPath, $signature_file_name);
-                $signature = 'uploads/staff/' . $signature_file_name;
+                $signature = 'uploads/all/' . $signature_file_name;
             }
 
             $user = new User();
@@ -3288,21 +3288,21 @@ class MemberController extends Controller
 
         $photo1_name = null;
         $photo2_name = null;
-        $uploadPath = public_path('uploads/members');
+        $uploadPath = public_path('uploads/all');
         $photo1 = null; // default value
         $photo2 = null; // default value
         if ($request->hasFile('photo1')) {
             $photo1_name = 'photo1' . time() . '.' .
             $request->photo1->getClientOriginalExtension();
             $request->photo1->move($uploadPath, $photo1_name);
-            $photo1_name = 'uploads/members/' . $photo1_name;
+            $photo1_name = 'uploads/all/' . $photo1_name;
         }
 
         if ($request->hasFile('photo2')) {
             $photo2_name = 'photo2' . time() . '.' .
             $request->photo2->getClientOriginalExtension();
             $request->photo2->move($uploadPath, $photo2_name);
-            $photo2_name = 'uploads/members/' . $photo2_name;
+            $photo2_name = 'uploads/all/' . $photo2_name;
         }
 
         // ✅ Save Data
@@ -3377,21 +3377,21 @@ class MemberController extends Controller
 
         $photo1_name = null;
         $photo2_name = null;
-        $uploadPath = public_path('uploads/members');
+        $uploadPath = public_path('uploads/all');
         $photo1 = null; // default value
         $photo2 = null; // default value
         if ($request->hasFile('photo1')) {
             $photo1_name = 'photo1' . time() . '.' .
             $request->photo1->getClientOriginalExtension();
             $request->photo1->move($uploadPath, $photo1_name);
-            $photo1_name = 'uploads/members/' . $photo1_name;
+            $photo1_name = 'uploads/all/' . $photo1_name;
         }
 
         if ($request->hasFile('photo2')) {
             $photo2_name = 'photo2' . time() . '.' .
             $request->photo2->getClientOriginalExtension();
             $request->photo2->move($uploadPath, $photo2_name);
-            $photo2_name = 'uploads/members/' . $photo2_name;
+            $photo2_name = 'uploads/all/' . $photo2_name;
         }
 
         // ✅ Save Data
@@ -3517,21 +3517,21 @@ class MemberController extends Controller
 
         $photo1_name = null;
         $photo2_name = null;
-        $uploadPath = public_path('uploads/members');
+        $uploadPath = public_path('uploads/all');
         $photo1 = null; // default value
         $photo2 = null; // default value
         if ($request->hasFile('photo1')) {
             $photo1_name = 'photo1' . time() . '.' .
             $request->photo1->getClientOriginalExtension();
             $request->photo1->move($uploadPath, $photo1_name);
-            $photo1_name = 'uploads/members/' . $photo1_name;
+            $photo1_name = 'uploads/all/' . $photo1_name;
         }
 
         if ($request->hasFile('photo2')) {
             $photo2_name = 'photo2' . time() . '.' .
             $request->photo2->getClientOriginalExtension();
             $request->photo2->move($uploadPath, $photo2_name);
-            $photo2_name = 'uploads/members/' . $photo2_name;
+            $photo2_name = 'uploads/all/' . $photo2_name;
         }
 
         // ✅ Save Data
@@ -3693,7 +3693,10 @@ class MemberController extends Controller
         if ($request->hasFile('screenshots')) {
             foreach ($request->file('screenshots') as $file) {
 
-                $path = $file->store('temp', 'public');
+                $fileName = uniqid('payment_', true).'.'.$file->getClientOriginalExtension();
+                File::ensureDirectoryExists(public_path('uploads/all'));
+                $file->move(public_path('uploads/all'), $fileName);
+                $path = 'uploads/all/'.$fileName;
 
                 DB::table('payment_temps')->insert([
                     'user_id' => $logged_vivah_mitra,
@@ -3739,10 +3742,10 @@ class MemberController extends Controller
 
         foreach ($tempData as $temp) {
 
-            $oldPath = storage_path('app/public/' . $temp->image);
+            $oldPath = public_path($temp->image);
 
             // new folder path
-            $newFolder = public_path('uploads/pay_screenshots/');
+            $newFolder = public_path('uploads/all/');
 
             // folder create if not exist
             if (!file_exists($newFolder)) {
@@ -3762,7 +3765,7 @@ class MemberController extends Controller
             // save in DB
             PaymentScreenshot::create([
                 'payment_id' => $payment->id,
-                'image' => 'uploads/pay_screenshots/' . $fileName
+                'image' => 'uploads/all/' . $fileName
             ]);
         }
 
@@ -4444,7 +4447,7 @@ class MemberController extends Controller
             $image_file_name = null;
             $signature_file_name = null;
             $payment_qr_file_name = null;
-            $uploadPath = public_path('uploads/staff');
+            $uploadPath = public_path('uploads/all');
 
             $profile_pic = null; // default value
             $signature = null; // default value
@@ -4457,21 +4460,21 @@ class MemberController extends Controller
 
                 $request->profile_pic->move($uploadPath, $image_file_name);
 
-                $profile_pic = 'uploads/staff/' . $image_file_name;
+                $profile_pic = 'uploads/all/' . $image_file_name;
             }
 
             if ($request->hasFile('signature')) {
                 $signature_file_name = 'signature' . time() . '.' .
                     $request->signature->getClientOriginalExtension();
                 $request->signature->move($uploadPath, $signature_file_name);
-                $signature = 'uploads/staff/' . $signature_file_name;
+                $signature = 'uploads/all/' . $signature_file_name;
             }
 
             if ($request->hasFile('payment_qr')) {
                 $payment_qr_file_name = 'payment_qr' . time() . '.' .
                     $request->payment_qr->getClientOriginalExtension();
                 $request->payment_qr->move($uploadPath, $payment_qr_file_name);
-                $payment_qr = 'uploads/staff/' . $payment_qr_file_name;
+                $payment_qr = 'uploads/all/' . $payment_qr_file_name;
             }
 
             $user = new User();

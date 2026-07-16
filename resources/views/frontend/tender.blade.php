@@ -58,7 +58,7 @@
 																@if($item->details!=null)
 																	{{ $item->details }}
 																@endif
-                                                            <span class="reply"><a href="{{ static_asset('uploads/tender/'.$item->upload) }}"><i class="fas fa-reply"></i> Download</a></span></h5>
+                                                            <span class="reply"><a href="{{ static_asset('uploads/all/'.$item->upload) }}"><i class="fas fa-reply"></i> Download</a></span></h5>
 
                                                             <p class="dateee">Upload Date</p>
                                                             <p class="datee"><i class="fa fa-calendar"></i> {{ date('d M, Y', strtotime($item->uploaddate)) }}</p>

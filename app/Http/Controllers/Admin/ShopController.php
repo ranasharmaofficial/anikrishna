@@ -155,8 +155,8 @@ class ShopController extends Controller
         if ($request->hasFile('investor_photo')) {
             $ext = $request->investor_photo->getClientOriginalExtension();
             $fileName1 = time() . rand(1, 999) . '.' . $ext;
-            $request->investor_photo->move(public_path('uploads/shops'), $fileName1);
-            $data['investor_photo'] = 'uploads/shops/' . $fileName1;
+            $request->investor_photo->move(public_path('uploads/all'), $fileName1);
+            $data['investor_photo'] = 'uploads/all/' . $fileName1;
         } else {
             $data['investor_photo'] = NULL;
         }
@@ -164,8 +164,8 @@ class ShopController extends Controller
         if ($request->hasFile('investor_agreement')) {
             $ext = $request->investor_agreement->getClientOriginalExtension();
             $fileName2 = time() . rand(1, 999) . '.' . $ext;
-            $request->investor_agreement->move(public_path('uploads/shops'), $fileName2);
-            $data['investor_agreement'] = 'uploads/shops/' . $fileName2;
+            $request->investor_agreement->move(public_path('uploads/all'), $fileName2);
+            $data['investor_agreement'] = 'uploads/all/' . $fileName2;
         } else {
             $data['investor_agreement'] = NULL;
         }
@@ -226,8 +226,8 @@ class ShopController extends Controller
         if ($request->hasFile('investor_photo')) {
             $ext = $request->investor_photo->getClientOriginalExtension();
             $fileName1 = time() . rand(1, 999) . '.' . $ext;
-            $request->investor_photo->move(public_path('uploads/shops'), $fileName1);
-            $data['investor_photo'] = 'uploads/shops/' . $fileName1;
+            $request->investor_photo->move(public_path('uploads/all'), $fileName1);
+            $data['investor_photo'] = 'uploads/all/' . $fileName1;
         } else {
             $data['investor_photo'] = NULL;
         }
@@ -235,8 +235,8 @@ class ShopController extends Controller
         if ($request->hasFile('investor_agreement')) {
             $ext = $request->investor_agreement->getClientOriginalExtension();
             $fileName2 = time() . rand(1, 999) . '.' . $ext;
-            $request->investor_agreement->move(public_path('uploads/shops'), $fileName2);
-            $data['investor_agreement'] = 'uploads/shops/' . $fileName2;
+            $request->investor_agreement->move(public_path('uploads/all'), $fileName2);
+            $data['investor_agreement'] = 'uploads/all/' . $fileName2;
         } else {
             $data['investor_agreement'] = NULL;
         }

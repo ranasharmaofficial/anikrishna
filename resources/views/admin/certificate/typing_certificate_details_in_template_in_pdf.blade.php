@@ -174,7 +174,7 @@
 		// dd($result_details->session);
 			$franchise_details = \App\Models\User::where('id', $result_details->franchise_id)->pluck('partner_code')->first();
 			$session_details = \App\Models\Session::where('id', $result_details->session)->first();
-			$student_image_path = public_path('uploads/tender/'.$result_details->image)
+			$student_image_path = public_path('uploads/all/'.$result_details->image)
 		@endphp
             
 		 

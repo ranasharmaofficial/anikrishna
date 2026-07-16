@@ -61,7 +61,7 @@
                                     <div class="form-group">
                                         <label>File <span class="text-danger">*</span></label>
                                         <input type="file"  class="form-control" name="file">
-										<a href="{{ static_asset('uploads/tender/'.$tender->upload) }}" target="_blank" class="btn btn-danger">Check File</a>
+										<a href="{{ static_asset('uploads/all/'.$tender->upload) }}" target="_blank" class="btn btn-danger">Check File</a>
                                     </div>
 									
 									

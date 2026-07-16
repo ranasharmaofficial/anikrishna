@@ -31,7 +31,7 @@
 			<!-- Main Image -->
 			<div class="col-md-8">
 				<a class="hover-effect-scale hover-effect-opacity position-relative d-flex rounded overflow-hidden"
-				   href="{{ static_asset('uploads/property/'.$images[0]->image) }}"
+				   href="{{ static_asset('uploads/all/'.$images[0]->image) }}"
 				   data-glightbox
 				   data-gallery="image-gallery">
 
@@ -41,7 +41,7 @@
 
 					<div class="ratio hover-effect-target bg-body-tertiary rounded"
 						 style="--fn-aspect-ratio: calc(450 / 856 * 100%)">
-						<img src="{{ static_asset('uploads/property/'.$images[0]->image) }}"
+						<img src="{{ static_asset('uploads/all/'.$images[0]->image) }}"
 							 alt="{{ $property_details->property_title }}">
 					</div>
 				</a>
@@ -53,7 +53,7 @@
 				@for($i = 1; $i <= 2; $i++)
 					@if(isset($images[$i]))
 						<a class="hover-effect-scale hover-effect-opacity position-relative d-flex rounded overflow-hidden"
-						   href="{{ static_asset('uploads/property/'.$images[$i]->image) }}"
+						   href="{{ static_asset('uploads/all/'.$images[$i]->image) }}"
 						   data-glightbox
 						   data-gallery="image-gallery">
 
@@ -64,7 +64,7 @@
 							<div class="ratio hover-effect-target bg-body-tertiary rounded"
 								 style="--fn-aspect-ratio: calc(213 / 416 * 100%)">
 
-								<img src="{{ static_asset('uploads/property/'.$images[$i]->image) }}"
+								<img src="{{ static_asset('uploads/all/'.$images[$i]->image) }}"
 									 alt="{{ $property_details->property_title }}">
 							</div>
 
@@ -84,7 +84,7 @@
 
 		<!-- Hidden Gallery Images -->
 		@foreach($images->skip(3) as $image)
-			<a href="{{ static_asset('uploads/property/'.$image->image) }}"
+			<a href="{{ static_asset('uploads/all/'.$image->image) }}"
 			   data-glightbox
 			   data-gallery="image-gallery"
 			   class="d-none">
@@ -99,7 +99,7 @@
 				<div class="col-md-6">
 					<div class="rounded overflow-hidden bg-body-tertiary">
 						<video class="w-100 d-block" controls preload="metadata" playsinline style="max-height:360px;object-fit:cover">
-							<source src="{{ static_asset('uploads/property/videos/'.$video->video) }}">
+							<source src="{{ static_asset('uploads/all/'.$video->video) }}">
 						</video>
 					</div>
 				</div>
@@ -276,7 +276,7 @@
               $agentMobile = $agent_details->mobile ?? $property_details->cust_mobile ?? null;
               $agentCompany = $agent_details->company_name ?? null;
               $agentPhoto = !empty($agent_details->profile_pic)
-                ? static_asset('uploads/profile/'.$agent_details->profile_pic)
+                ? static_asset('uploads/all/'.$agent_details->profile_pic)
                 : static_asset('assets/assets_web/img/default-user.png');
             @endphp
             <div class="d-none d-lg-block" style="margin-top: -105px"></div>

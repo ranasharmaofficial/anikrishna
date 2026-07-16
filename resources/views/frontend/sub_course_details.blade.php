@@ -50,7 +50,7 @@
                <div class="col-xl-9 col-lg-8">
                   <div class="it-course-details-wrap">
                      <div class="it-evn-details-thumb mb-35">
-                        <img src="{{ static_asset('uploads/courses/'.$subcourse->image) }}" alt="">
+                        <img src="{{ static_asset('uploads/all/'.$subcourse->image) }}" alt="">
                      </div>
                      <div class="it-evn-details-rate mb-15">
                         <span>

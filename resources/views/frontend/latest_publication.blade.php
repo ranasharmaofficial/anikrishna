@@ -14,13 +14,16 @@
         <div class="publication-filter">
             <form method="get">
                 <div class="pub-search"><i class="fa-solid fa-magnifying-glass"></i><input name="search" value="{{ request('search') }}" placeholder="Search title or keyword"></div><select name="section">
-                    <option value="">All Sections</option>@foreach($sections as $section)<option @selected(request('section')===$section)>{{ $section }}</option>@endforeach
+                    <option value="">All Sections</option>
+                    @foreach($sections as $section)
+                        <option @selected(request('section')===$section)>{{ $section }}</option>
+                    @endforeach
                 </select><button>Search</button><a href="{{ route('latestPubilcation') }}">Reset</a>
             </form>
         </div>
         <div class="publication-grid">
             <main>
-                @forelse($publications as $publication)<article class="publication-card">@if($publication->featured_image)<a class="pub-cover" href="{{ route('publication.details',$publication->slug) }}"><img src="{{ asset('storage/'.$publication->featured_image) }}" alt="{{ $publication->title }}"></a>@endif<div class="pub-card-body">
+                @forelse($publications as $publication)<article class="publication-card">@if($publication->featured_image)<a class="pub-cover" href="{{ route('publication.details',$publication->slug) }}"><img src="{{ $publication->featured_image_url }}" alt="{{ $publication->title }}"></a>@endif<div class="pub-card-body">
                         <div class="pub-card-top"><span>{{ $publication->section }}</span><time>{{ optional($publication->published_date)->format('d M Y') ?? optional($publication->published_at)->format('d M Y') }}</time></div>
                         <h2><a href="{{ route('publication.details',$publication->slug) }}">{{ $publication->title }}</a></h2>
                         <p>{{ $publication->excerpt ?: Str::limit(strip_tags($publication->abstract),190) }}</p>

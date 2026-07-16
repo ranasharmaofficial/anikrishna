@@ -37,7 +37,7 @@
 				</td>
                 <td>
                     <img onclick="updateStaffPhoto(this)" id="{{ $user->id }}" style="cursor:pointer;"
-                        src="{{ static_asset('uploads/profile/'.$user->profile_pic) }}" width="60"
+                        src="{{ static_asset('uploads/all/'.$user->profile_pic) }}" width="60"
                         onerror="this.onerror=null;this.src='https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg';"
                         alt="{{ $user->first_name }}" class="img-fluid">
                 </td>

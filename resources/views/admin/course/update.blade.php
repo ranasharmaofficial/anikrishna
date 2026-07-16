@@ -57,7 +57,7 @@
                                         <label class="col-form-label">Course Picture <star>*</star></label>
                                         <input type="file" name="courseimage" class="form-control">
                                         <small class="text-danger form-text">@error('courseimage') {{$message}} @enderror</small>
-                                        <img src="{{ static_asset('uploads/courses/'.$course->courseImage) }}" class="img-fluid mt-3" style="height:150px;"/>
+                                        <img src="{{ static_asset('uploads/all/'.$course->courseImage) }}" class="img-fluid mt-3" style="height:150px;"/>
                                     </div>
 
                                     <div class="col-sm-12 mt-3 text-center">

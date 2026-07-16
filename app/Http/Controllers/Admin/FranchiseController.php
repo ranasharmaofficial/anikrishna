@@ -108,7 +108,7 @@ class FranchiseController extends Controller
         if($request->has('image')){
             $name = $request->image->getClientOriginalName();
             $imageName = time().rand(1,999).'.'.$name;
-            $request->image->move(public_path('uploads/tender'), $imageName);
+            $request->image->move(public_path('uploads/all'), $imageName);
             $data['image'] = $imageName;
         }else{
             $data['image'] = NULL;

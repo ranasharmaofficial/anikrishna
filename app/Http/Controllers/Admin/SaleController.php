@@ -501,13 +501,13 @@ class SaleController extends Controller
         }
 
         $image_file_name = null;
-        $uploadPath = public_path('uploads/staff');
+        $uploadPath = public_path('uploads/all');
 
             if ($request->hasFile('image_file')) {
                 $image_file_name = 'image_file' . time() . '.' . $request->image_file->getClientOriginalExtension();
                 $request->image_file->move($uploadPath, $image_file_name);
 
-                $staff->profile_pic = $image_file_name ? 'uploads/staff/' . $image_file_name : null;
+                $staff->profile_pic = $image_file_name ? 'uploads/all/' . $image_file_name : null;
                 $staff->save();
             }
 
@@ -593,7 +593,7 @@ class SaleController extends Controller
                 // -------------------------
                 // FILE UPLOAD HANDLING
                 // -------------------------
-                $uploadPath = public_path('uploads/user_documents');
+                $uploadPath = public_path('uploads/all');
                 if (!file_exists($uploadPath)) {
                     mkdir($uploadPath, 0777, true);
                 }
@@ -870,7 +870,7 @@ class SaleController extends Controller
             // ------------------------------------------
             // UPLOAD DIRECTORY
             // ------------------------------------------
-            $uploadPath = public_path('uploads/user_documents');
+            $uploadPath = public_path('uploads/all');
             if (!file_exists($uploadPath)) {
                 mkdir($uploadPath, 0777, true);
             }

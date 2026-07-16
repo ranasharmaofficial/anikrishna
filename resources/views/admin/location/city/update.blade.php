@@ -68,7 +68,7 @@
 										<div class="form-group">
 											<label>Icons <span class="text-danger">*</span> </label>
 											<input type="file" placeholder="Enter Icons" class="form-control" name="icons">
-											<img style="margint-top:5px;max-width: 30px;width:30px;" src="{{ static_asset('uploads/speciality/'.$data->icons) }}">
+											<img style="margint-top:5px;max-width: 30px;width:30px;" src="{{ static_asset('uploads/all/'.$data->icons) }}">
 										</div>
 									</div>
 								

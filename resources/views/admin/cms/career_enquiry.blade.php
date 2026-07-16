@@ -56,7 +56,7 @@
                                     <td>{{ $value->apply_for }}</td>
                                     <td>
                                         @if($value->resume)
-                                            <a class="btn btn-success" target="_blank" href="{{ static_asset('uploads/resume/'.$value->resume) }}">View Resume</a>
+                                            <a class="btn btn-success" target="_blank" href="{{ static_asset('uploads/all/'.$value->resume) }}">View Resume</a>
                                         @endif
                                     </td>
                                     <td>{{ $value->message }}</td>

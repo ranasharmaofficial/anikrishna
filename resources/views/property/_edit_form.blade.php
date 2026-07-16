@@ -113,7 +113,7 @@
         @foreach($property->images as $image)
             <div class="col-6 col-md-3">
                 <div class="card h-100">
-                    <img src="{{ static_asset('uploads/property/'.$image->image) }}" class="card-img-top" style="height:140px;object-fit:cover" alt="Property image">
+                    <img src="{{ static_asset('uploads/all/'.$image->image) }}" class="card-img-top" style="height:140px;object-fit:cover" alt="Property image">
                     <label class="card-body py-2 text-danger"><input type="checkbox" name="delete_images[]" value="{{ $image->id }}" class="form-check-input me-1"> Remove</label>
                 </div>
             </div>
@@ -128,7 +128,7 @@
             <div class="col-12 col-md-6">
                 <div class="card h-100">
                     <video class="w-100" style="height:180px;object-fit:cover" controls preload="metadata">
-                        <source src="{{ static_asset('uploads/property/videos/'.$video->video) }}">
+                        <source src="{{ static_asset('uploads/all/'.$video->video) }}">
                     </video>
                     <label class="card-body py-2 text-danger"><input type="checkbox" name="delete_videos[]" value="{{ $video->id }}" class="form-check-input me-1"> Remove</label>
                 </div>

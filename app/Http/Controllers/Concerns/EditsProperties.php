@@ -123,7 +123,7 @@ trait EditsProperties
             $imagesToDelete = PropertyImage::where('property_id', $property->id)
                 ->whereIn('id', $validated['delete_images'] ?? [])->get();
             foreach ($imagesToDelete as $image) {
-                $path = public_path('uploads/property/'.$image->image);
+                $path = public_path('uploads/all/'.$image->image);
                 if (File::exists($path)) {
                     File::delete($path);
                 }
@@ -133,7 +133,7 @@ trait EditsProperties
             $videosToDelete = PropertyVideo::where('property_id', $property->id)
                 ->whereIn('id', $validated['delete_videos'] ?? [])->get();
             foreach ($videosToDelete as $video) {
-                $path = public_path('uploads/property/videos/'.$video->video);
+                $path = public_path('uploads/all/'.$video->video);
                 if (File::exists($path)) {
                     File::delete($path);
                 }
@@ -142,14 +142,14 @@ trait EditsProperties
 
             foreach ($request->file('images', []) as $image) {
                 $filename = now()->format('YmdHis').'_'.Str::random(12).'.'.$image->getClientOriginalExtension();
-                $image->move(public_path('uploads/property'), $filename);
+                $image->move(public_path('uploads/all'), $filename);
                 PropertyImage::create(['property_id' => $property->id, 'image' => $filename]);
             }
 
             foreach ($request->file('videos', []) as $video) {
-                File::ensureDirectoryExists(public_path('uploads/property/videos'));
+                File::ensureDirectoryExists(public_path('uploads/all'));
                 $filename = now()->format('YmdHis').'_'.Str::random(12).'.'.$video->getClientOriginalExtension();
-                $video->move(public_path('uploads/property/videos'), $filename);
+                $video->move(public_path('uploads/all'), $filename);
                 PropertyVideo::create(['property_id' => $property->id, 'video' => $filename]);
             }
         });

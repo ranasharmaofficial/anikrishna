@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class AttendanceController extends Controller
 {
@@ -103,14 +103,15 @@ class AttendanceController extends Controller
         $image = str_replace(' ', '+', $image);
 
         $name = 'attendance_' . time() . '.png';
-        Storage::disk('public')->put('attendance/' . $name, base64_decode($image));
+        File::ensureDirectoryExists(public_path('uploads/all'));
+        File::put(public_path('uploads/all/'.$name), base64_decode($image));
 
         Attendance::create([
             'user_id' => $request->user_id,
             'date' => date('Y-m-d'),
             'check_in' => $now->format('H:i:s'),
             'status' => 'on_time',
-            'checkin_photo' => 'attendance/' . $name,
+            'checkin_photo' => 'uploads/all/' . $name,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
             'address' => $request->address
@@ -173,14 +174,15 @@ class AttendanceController extends Controller
 
         $name = 'attendance_' . time() . '.png';
 
-        Storage::disk('public')->put('attendance/' . $name, base64_decode($image));
+        File::ensureDirectoryExists(public_path('uploads/all'));
+        File::put(public_path('uploads/all/'.$name), base64_decode($image));
 
         $out = Carbon::now();
         $in  = Carbon::parse($att->check_in);
 
         $att->check_out = $out->format('H:i:s');
         $att->working_minutes = $out->diffInMinutes($in);
-        $att->checkout_photo = 'attendance/' . $name;
+        $att->checkout_photo = 'uploads/all/' . $name;
         $att->checkout_address = $request->checkout_address;
 
         $att->save();

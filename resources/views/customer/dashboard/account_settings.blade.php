@@ -58,7 +58,7 @@
 		
 						<div class="position-relative">
 							<img id="profilePreview"
-								 src="{{ !empty($customerDetails->profile_pic) ? static_asset('uploads/profile/'.$customerDetails->profile_pic) : static_asset('assets/assets_web/img/default-user.png') }}"
+								 src="{{ !empty($customerDetails->profile_pic) ? static_asset('uploads/all/'.$customerDetails->profile_pic) : static_asset('assets/assets_web/img/default-user.png') }}"
 								 class="rounded-circle border"
 								 width="120"
 								 height="120"

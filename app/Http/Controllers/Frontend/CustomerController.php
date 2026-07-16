@@ -115,15 +115,15 @@ class CustomerController extends Controller
 
             // Delete old image
             if (!empty($user->profile_pic) &&
-                File::exists(public_path('uploads/profile/' . $user->profile_pic))) {
+                File::exists(public_path('uploads/all/' . $user->profile_pic))) {
 
-                File::delete(public_path('uploads/profile/' . $user->profile_pic));
+                File::delete(public_path('uploads/all/' . $user->profile_pic));
             }
 
             $file = $request->file('profile_pic');
             $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
 
-            $file->move(public_path('uploads/profile'), $filename);
+            $file->move(public_path('uploads/all'), $filename);
 
             $user->profile_pic = $filename;
             $user->save();
@@ -131,7 +131,7 @@ class CustomerController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'Profile photo updated successfully.',
-                'image' => static_asset('uploads/profile/' . $filename)
+                'image' => static_asset('uploads/all/' . $filename)
             ]);
         }
 
@@ -150,6 +150,18 @@ class CustomerController extends Controller
             'customerDetails' => $customerDetails,
         ];
         return view('customer.add_post', $datas);
+    }
+
+    public function posts()
+    {
+        $posts = CustomerPost::where('user_id', session('LoggedCustomer')->user_id)
+            ->latest()
+            ->paginate(12);
+
+        return view('customer.posts', [
+            'posts' => $posts,
+            'customerDetails' => customerDetails(),
+        ]);
     }
 
     public function startPost(Request $request)
@@ -180,7 +192,10 @@ class CustomerController extends Controller
         ]);
         $files = $post->files ?? [];
         foreach ($request->file('documents', []) as $file) {
-            $files[] = ['name'=>$file->getClientOriginalName(), 'path'=>$file->store('customer-posts', 'public')];
+            File::ensureDirectoryExists(public_path('uploads/all'));
+            $filename = uniqid('publication_', true).'.'.$file->getClientOriginalExtension();
+            $file->move(public_path('uploads/all'), $filename);
+            $files[] = ['name'=>$file->getClientOriginalName(), 'path'=>'uploads/all/'.$filename];
         }
         $contributors = json_decode($request->input('contributors', '[]'), true);
         $submitted = $data['action'] === 'submit';

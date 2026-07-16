@@ -122,7 +122,7 @@
 
                                     @if($attendance->checkin_photo)
                                         <div class="col-12 text-center">
-                                            <img src="{{ url('public/storage/' . $attendance->checkin_photo) }}"
+                                            <img src="{{ asset($attendance->checkin_photo) }}"
                                                 style="max-width:280px;border-radius:10px;border:1px solid #ddd;padding:5px">
                                         </div>
                                     @endif

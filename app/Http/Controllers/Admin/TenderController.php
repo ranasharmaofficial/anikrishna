@@ -53,7 +53,7 @@ class TenderController extends Controller
             // $data['file'] = upload_asset($request->file, 'tender');
             $name = $request->file->getClientOriginalName();
             $imageName = time().rand(1,999).'.'.$name;
-            $request->file->move(public_path('uploads/tender'), $imageName);
+            $request->file->move(public_path('uploads/all'), $imageName);
             $data['file'] = $imageName;
         }else{
             $data['file'] = NULL;
@@ -98,7 +98,7 @@ class TenderController extends Controller
             // $data['file'] = upload_asset($request->file, 'tender');
             $name = $request->file->getClientOriginalName();
             $imageName = time().rand(1,999).'.'.$name;
-            $request->file->move(public_path('uploads/tender'), $imageName);
+            $request->file->move(public_path('uploads/all'), $imageName);
             $data['file'] = $imageName;
         }else{
             $data['file'] = NULL;

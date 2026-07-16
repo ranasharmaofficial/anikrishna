@@ -114,7 +114,9 @@ class CommonController extends Controller
         $publication = CustomerPost::where('slug',$slug)->where('status','approved')->whereNotNull('published_at')->firstOrFail();
         $files = $publication->files ?? [];
         abort_unless(isset($files[$file]), 404);
-        $path = storage_path('app/public/'.$files[$file]['path']);
+        $path = str_starts_with($files[$file]['path'], 'uploads/')
+            ? public_path($files[$file]['path'])
+            : storage_path('app/public/'.$files[$file]['path']);
         abort_unless(File::exists($path), 404);
         $publication->increment('download_count');
         return response()->download($path, $files[$file]['name']);
@@ -459,7 +461,7 @@ class CommonController extends Controller
                 $file = $request->file('resume');
                 $extenstion = $file->getClientOriginalExtension();
                 $document_name = 'resume-' . time() . '.' . $extenstion;
-                $file->move(public_path('uploads/resume'), $document_name);
+                $file->move(public_path('uploads/all'), $document_name);
             } else {
                 $document_name = null;
             }
@@ -988,7 +990,7 @@ class CommonController extends Controller
                         $filename = time().'_'.uniqid().'.'.$image->getClientOriginalExtension();
 
                         $image->move(
-                            public_path('uploads/property'),
+                            public_path('uploads/all'),
                             $filename
                         );
 
@@ -1001,14 +1003,14 @@ class CommonController extends Controller
 
                 if($request->hasFile('video'))
                 {
-                    File::ensureDirectoryExists(public_path('uploads/property/videos'));
+                    File::ensureDirectoryExists(public_path('uploads/all'));
 
                     foreach($request->file('video') as $video)
                     {
                         $filename = time().'_'.uniqid().'.'.$video->getClientOriginalExtension();
 
                         $video->move(
-                            public_path('uploads/property/videos'),
+                            public_path('uploads/all'),
                             $filename
                         );
 

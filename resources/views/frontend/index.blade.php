@@ -25,7 +25,7 @@
 <div class="off-canvas d-none d-xl-block">
     <div class="off-canvas__inner">
         <div class="off-canvas__head">
-            <a href="index.html">
+            <a href="{{ url('') }}">
                 <img src="{{ static_asset('assets/assets_web/images/log.png') }}" alt="Logo">
             </a>
             <button aria-label="close off canvas" class="off-canvas-close">

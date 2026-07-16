@@ -113,7 +113,7 @@
                         </a>
                     </li>
 
-                    <li class="slide has-sub">
+                    {{-- <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
                             <span class=" side-menu__icon">
                                 <i class='fe fe-box'></i>
@@ -129,11 +129,8 @@
                             <li class="slide">
                                 <a href="{{ url('admin/website/vivah-mitra-app-sliders') }}" class="side-menu__item">Slider</a>
                             </li>
-
-
-
                         </ul>
-                    </li>
+                    </li> --}}
 
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
@@ -153,7 +150,7 @@
                             </li>
                             {{-- <li class="slide">
                                 <a href="{{ url('admin/designations') }}" class="side-menu__item">User Designation</a>
-                            </li> --}}
+                            </li>
 
 
                             <li class="slide">
@@ -166,7 +163,7 @@
 
                             <li class="slide">
                                 <a href="{{ url('admin/location/blocks') }}" class="side-menu__item">Block</a>
-                            </li>
+                            </li> --}}
 
 
                         </ul>
@@ -192,7 +189,7 @@
 
                      
 
-                    <li class="slide has-sub">
+                    {{-- <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
                             <span class=" side-menu__icon">
                                 <i class="ri-pages-line"></i>
@@ -210,9 +207,9 @@
                                 <a href="{{ url('admin/section_data') }}" class="side-menu__item">Page Section Data List</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
 
-                    <li class="slide has-sub">
+                    {{-- <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
                             <span class=" side-menu__icon">
                                 <i class="ri-customer-service-fill"></i>
@@ -229,7 +226,7 @@
                             </li>
 
                         </ul>
-                    </li>
+                    </li> --}}
 
 					<li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
@@ -243,10 +240,10 @@
                             <li class="slide side-menu__label1">
                                 <a href="javascript:void(0)">Enquiry</a>
                             </li>
-                            <li class="slide">
+                            {{-- <li class="slide">
                                 <a href="{{ url('admin/home-page-enquiry') }}" class="side-menu__item">Home Page Enquiry
                                     List</a>
-                            </li>
+                            </li> --}}
 
                             <li class="slide">
                                 <a href="{{ url('admin/contact-enquiry') }}" class="side-menu__item">Contact Page List</a>

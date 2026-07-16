@@ -151,7 +151,7 @@
 
                                 <td>
                                     @if($exp->bill_file)
-                                        <a target="_blank" href="{{ asset('uploads/bills/'.$exp->bill_file) }}">View</a>
+                                        <a target="_blank" href="{{ asset('uploads/all/'.$exp->bill_file) }}">View</a>
                                     @else
                                         -
                                     @endif

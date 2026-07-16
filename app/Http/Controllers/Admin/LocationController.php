@@ -564,7 +564,7 @@ class LocationController extends Controller
         if($request->has('icons')){
             $name = $request->icons->getClientOriginalName();
             $imageName = time().rand(1,999).'.'.$name;
-            $request->icons->move(public_path('uploads/speciality'), $imageName);
+            $request->icons->move(public_path('uploads/all'), $imageName);
             $data['icons'] = $imageName;
         }else{
             $data['icons'] = NULL;
@@ -624,7 +624,7 @@ class LocationController extends Controller
         if($request->has('icons')){
             $name = $request->icons->getClientOriginalName();
             $imageName = time().rand(1,999).'.'.$name;
-            $request->icons->move(public_path('uploads/speciality'), $imageName);
+            $request->icons->move(public_path('uploads/all'), $imageName);
             $data['icons'] = $imageName;
         }else{
             $data['icons'] = NULL;

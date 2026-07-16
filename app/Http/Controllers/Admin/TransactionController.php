@@ -80,7 +80,7 @@ class TransactionController extends Controller
             ============================== */
 
             $image_file_name = null;
-            $uploadPath = public_path('uploads/screenshot');
+            $uploadPath = public_path('uploads/all');
 
             if ($request->hasFile('screenshot')) {
                 $image_file_name = 'screenshot' . time() . '.' . $request->screenshot->getClientOriginalExtension();
@@ -162,7 +162,7 @@ class TransactionController extends Controller
 
             if ($request->hasFile('screenshot')) {
 
-                $uploadPath = public_path('uploads/screenshot');
+                $uploadPath = public_path('uploads/all');
 
                 if (!file_exists($uploadPath)) {
                     mkdir($uploadPath, 0777, true);
@@ -327,7 +327,7 @@ class TransactionController extends Controller
 
             if ($request->hasFile('screenshot')) {
 
-                $uploadPath = public_path('uploads/screenshot');
+                $uploadPath = public_path('uploads/all');
 
                 if (!file_exists($uploadPath)) {
                     mkdir($uploadPath, 0777, true);

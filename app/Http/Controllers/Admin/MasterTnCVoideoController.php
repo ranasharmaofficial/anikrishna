@@ -95,8 +95,8 @@ class MasterTnCVoideoController extends Controller
         // if ($request->hasFile('file')) {
         //     $ext = $request->file->getClientOriginalExtension();
         //     $fileName = time() . rand(1, 999) . '.' . $ext;
-        //     $request->file->move(public_path('uploads/offer'), $fileName);
-        //     $data['file'] = 'uploads/offer/' . $fileName;
+        //     $request->file->move(public_path('uploads/all'), $fileName);
+        //     $data['file'] = 'uploads/all/' . $fileName;
         // } else {
         //     $data['file'] = NULL;
         // }
@@ -137,8 +137,8 @@ class MasterTnCVoideoController extends Controller
         // if ($request->hasFile('file')) {
         //     $ext = $request->file->getClientOriginalExtension();
         //     $fileName = time() . rand(1, 999) . '.' . $ext;
-        //     $request->file->move(public_path('uploads/offer'), $fileName);
-        //     $data['file'] = 'uploads/offer/' . $fileName;
+        //     $request->file->move(public_path('uploads/all'), $fileName);
+        //     $data['file'] = 'uploads/all/' . $fileName;
         // } else {
         //     $data['file'] = NULL;
         // }

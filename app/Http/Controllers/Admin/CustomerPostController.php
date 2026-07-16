@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\CustomerPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -15,7 +16,9 @@ class CustomerPostController extends Controller
             ->when($request->status, fn($q,$v)=>$q->where('status',$v))->latest()->paginate(20);
         return view('admin.customer_posts.index', compact('posts'));
     }
-    public function show(CustomerPost $post) { $post->load('user'); return view('admin.customer_posts.show', compact('post')); }
+    public function show(CustomerPost $post) {
+		$post->load('user'); return view('admin.customer_posts.show', compact('post')); 
+	}
     public function edit(CustomerPost $post) { $post->load('user'); return view('admin.customer_posts.edit', compact('post')); }
     public function update(Request $request, CustomerPost $post)
     {
@@ -32,12 +35,32 @@ class CustomerPostController extends Controller
         $allowed = '<p><br><b><strong><i><em><u><s><sup><sub><ul><ol><li><blockquote><h1><h2><h3><h4><h5><h6><a><table><thead><tbody><tr><th><td><hr>';
         $data['abstract'] = strip_tags($data['abstract'], $allowed);
         $data['content'] = strip_tags($data['content'] ?? '', $allowed);
-        if ($request->hasFile('featured_image')) $data['featured_image'] = $request->file('featured_image')->store('customer-posts/covers','public');
+        if ($request->hasFile('featured_image')) {
+            $image = $request->file('featured_image');
+            $imageName = Str::uuid().'.'.$image->getClientOriginalExtension();
+            File::ensureDirectoryExists(public_path('uploads/all'));
+            $image->move(public_path('uploads/all'), $imageName);
+            $data['featured_image'] = 'uploads/all/'.$imageName;
+        }
         if ($data['status'] === 'approved') {
             $data['published_at'] = $post->published_at ?: now();
             $data['published_date'] = $data['published_date'] ?: now()->toDateString();
         } else $data['published_at'] = null;
         $post->update($data);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'message' => 'Submission updated successfully.',
+                'post' => [
+                    'id' => $post->id,
+                    'status' => $post->status,
+                    'slug' => $post->slug,
+                    'featured_image_url' => $post->featured_image_url,
+                    'updated_at' => optional($post->updated_at)->toIso8601String(),
+                ],
+            ]);
+        }
+
         return redirect()->route('admin.customer-posts.index')->with('alert-success','Post updated successfully.');
     }
 }

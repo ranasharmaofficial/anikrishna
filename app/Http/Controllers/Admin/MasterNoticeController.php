@@ -122,8 +122,8 @@ class MasterNoticeController extends Controller
         if ($request->hasFile('file')) {
             $ext = $request->file->getClientOriginalExtension();
             $fileName = time() . rand(1, 999) . '.' . $ext;
-            $request->file->move(public_path('uploads/notice'), $fileName);
-            $data['file'] = 'uploads/notice/' . $fileName;
+            $request->file->move(public_path('uploads/all'), $fileName);
+            $data['file'] = 'uploads/all/' . $fileName;
         } else {
             $data['file'] = NULL;
         }
@@ -169,8 +169,8 @@ class MasterNoticeController extends Controller
         if ($request->hasFile('file')) {
             $ext = $request->file->getClientOriginalExtension();
             $fileName = time() . rand(1, 999) . '.' . $ext;
-            $request->file->move(public_path('uploads/notice'), $fileName);
-            $data['file'] = 'uploads/notice/' . $fileName;
+            $request->file->move(public_path('uploads/all'), $fileName);
+            $data['file'] = 'uploads/all/' . $fileName;
         } else {
             $data['file'] = NULL;
         }

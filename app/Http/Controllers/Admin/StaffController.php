@@ -92,7 +92,7 @@ class StaffController extends Controller
             });
         }
 
-        $users = $query->paginate(20);
+        $users = $query->latest()->paginate(20);
 
         return view('admin.staffs.index', compact('users', 'user_type_list', 'designation_list', 'page_title', 'total_employee'));
     }
@@ -129,7 +129,7 @@ class StaffController extends Controller
             });
         }
 
-        $users = $query->paginate(20);
+        $users = $query->latest()->paginate(20);
 
         if ($request->ajax()) {
             return view('admin.staffs.partials.user_table', compact('users'))->render();
@@ -534,7 +534,7 @@ class StaffController extends Controller
         }
 
         $image_file_name = null;
-        $uploadPath = public_path('uploads/profile');
+        $uploadPath = public_path('uploads/all');
 
         if ($request->hasFile('image_file')) {
             $image_file_name = 'image_file' . time() . '.' . $request->image_file->getClientOriginalExtension();
@@ -626,7 +626,7 @@ class StaffController extends Controller
             // -------------------------
             // FILE UPLOAD HANDLING
             // -------------------------
-            $uploadPath = public_path('uploads/user_documents');
+            $uploadPath = public_path('uploads/all');
             if (!file_exists($uploadPath)) {
                 mkdir($uploadPath, 0777, true);
             }
@@ -907,7 +907,7 @@ class StaffController extends Controller
             // ------------------------------------------
             // UPLOAD DIRECTORY
             // ------------------------------------------
-            $uploadPath = public_path('uploads/user_documents');
+            $uploadPath = public_path('uploads/all');
             if (!file_exists($uploadPath)) {
                 mkdir($uploadPath, 0777, true);
             }
@@ -1853,7 +1853,7 @@ class StaffController extends Controller
         }
 
         $image_file_name = null;
-        $uploadPath = public_path('uploads/staff');
+        $uploadPath = public_path('uploads/all');
 
         if ($status == 1) {
             $staff->status = 1;
@@ -1897,7 +1897,7 @@ class StaffController extends Controller
         }
 
         $image_file_name = null;
-        $uploadPath = public_path('uploads/staff');
+        $uploadPath = public_path('uploads/all');
 
         if ($status == 1) {
             $staff->status = 1;
@@ -2040,7 +2040,7 @@ class StaffController extends Controller
         ]);
 
         $image_file_name = null;
-        $uploadPath = public_path('uploads/members');
+        $uploadPath = public_path('uploads/all');
         $profile_pic = null; // default value
 
         if ($request->hasFile('profile_pic')) {
@@ -2050,7 +2050,7 @@ class StaffController extends Controller
 
             $request->profile_pic->move($uploadPath, $image_file_name);
 
-            $profile_pic = 'uploads/members/' . $image_file_name;
+            $profile_pic = 'uploads/all/' . $image_file_name;
         }
 
         $member = Member::findOrFail($request->id);

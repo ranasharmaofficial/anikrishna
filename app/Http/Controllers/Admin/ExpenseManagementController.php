@@ -210,7 +210,7 @@ class ExpenseManagementController extends Controller
 
         if ($request->hasFile('bill_file')) {
             $fileName = time() . '.' . $request->bill_file->extension();
-            $request->bill_file->move(public_path('uploads/bills'), $fileName);
+            $request->bill_file->move(public_path('uploads/all'), $fileName);
         }
 
         Expense::create([

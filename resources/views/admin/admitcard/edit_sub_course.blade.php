@@ -75,7 +75,7 @@
                                             <label class="col-form-label">Picture <star>*</star></label>
                                             <input type="file" name="image" class="form-control">
                                             <small class="text-danger form-text">@error('image') {{$message}} @enderror</small>
-                                            <img src="{{ static_asset('uploads/courses/'.$subcoursedata->image) }}" class="img-fluid mt-3" style="height:150px;"/>
+                                            <img src="{{ static_asset('uploads/all/'.$subcoursedata->image) }}" class="img-fluid mt-3" style="height:150px;"/>
                                         </div>
                                         <div class="col-sm-6">
                                             <label class="col-form-label">Sub Course Fee <star>*</star></label>

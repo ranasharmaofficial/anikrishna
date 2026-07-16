@@ -61,7 +61,7 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $value->title }}</td>
                                         <td>{{ $value->details }}</td>
-                                        <td><a href="{{ static_asset('uploads/tender/'.$value->upload) }}" class="btn btn-primary">Download File</a></td>
+                                        <td><a href="{{ static_asset('uploads/all/'.$value->upload) }}" class="btn btn-primary">Download File</a></td>
                                         <td>{{ date('d M, Y', strtotime($value->uploaddate)) }}</td>
                                         <td><a class="btn btn-danger btn-sm" href="{{ route('admin.tenders.edit',$value->id) }}">Edit</a></td>
                                          

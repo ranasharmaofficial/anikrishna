@@ -55,8 +55,8 @@ class BrandController extends Controller
         if($request->has('logo')){
             $name = $request->logo->getClientOriginalName();
             $imageName = time().rand(1,999).'.'.$name;
-            $request->logo->move(public_path('uploads/brand'), $imageName);
-            $data['logo'] = 'uploads/brand/'.$imageName;
+            $request->logo->move(public_path('uploads/all'), $imageName);
+            $data['logo'] = 'uploads/all/'.$imageName;
         }else{
             $data['logo'] = NULL;
         }
@@ -117,8 +117,8 @@ class BrandController extends Controller
         if($request->has('logo')){
             $name = $request->logo->getClientOriginalName();
             $imageName = time().rand(1,999).'.'.$name;
-            $request->logo->move(public_path('uploads/brand'), $imageName);
-            $data['logo'] = 'uploads/brand/'.$imageName;
+            $request->logo->move(public_path('uploads/all'), $imageName);
+            $data['logo'] = 'uploads/all/'.$imageName;
         }else{
             $data['logo'] = NULL;
         }

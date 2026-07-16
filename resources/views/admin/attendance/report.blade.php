@@ -91,8 +91,8 @@
                                         </td>
                                         <td>
                                             @if($att->checkin_photo)
-                                                <a href="{{ url('public/storage/' . $att->checkin_photo) }}" target="_blank">
-                                                    <img src="{{ url('public/storage/' . $att->checkin_photo) }}"
+                                                <a href="{{ asset($att->checkin_photo) }}" target="_blank">
+                                                    <img src="{{ asset($att->checkin_photo) }}"
                                                         style="width:150px;height:150px;border-radius:6px;border:1px solid #ddd">
                                                 </a>
                                             @else
@@ -102,8 +102,8 @@
 
                                         <td>
                                             @if($att->checkout_photo)
-                                                <a href="{{ url('public/storage/' . $att->checkout_photo) }}" target="_blank">
-                                                    <img src="{{ url('public/storage/' . $att->checkout_photo) }}"
+                                                <a href="{{ asset($att->checkout_photo) }}" target="_blank">
+                                                    <img src="{{ asset($att->checkout_photo) }}"
                                                         style="width:150px;height:150px;border-radius:6px;border:1px solid #ddd">
                                                 </a>
                                             @else

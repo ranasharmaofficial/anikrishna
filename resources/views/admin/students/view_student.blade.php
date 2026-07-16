@@ -155,7 +155,7 @@ b{
 						<table class="table table-bordered">
 						  <tbody>
 							<tr>
-							  <th scope="row txt-center"><img src="{{ static_asset('uploads/tender/'.$student->image) }}" width="123px" height="165px" /></th>
+							  <th scope="row txt-center"><img src="{{ static_asset('uploads/all/'.$student->image) }}" width="123px" height="165px" /></th>
 							</tr>
 							{{--<tr>
 							  <th scope="row txt-center"><img src="http://peoplehelp.in/mewaruni/images/signature.png" /></th>

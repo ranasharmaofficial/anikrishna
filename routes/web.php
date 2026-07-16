@@ -242,6 +242,7 @@ Route::group(['prefix' => 'customer', 'middleware' => ['CustomerAuthCheck'], 'as
     Route::post('/update-profile-photo', [CustomerController::class, 'updateProfilePhoto'])->name('update.profile.photo');
 
     Route::get('/add-post', [CustomerController::class, 'addPost'])->name('addPost');
+    Route::get('/posts', [CustomerController::class, 'posts'])->name('posts.index');
     Route::post('/posts/start', [CustomerController::class, 'startPost'])->name('posts.start');
     Route::get('/posts/{post}/submission', [CustomerController::class, 'editPostSubmission'])->name('posts.submission');
     Route::post('/posts/{post}/submission', [CustomerController::class, 'savePostSubmission'])->name('posts.save');

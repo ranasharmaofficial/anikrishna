@@ -249,7 +249,7 @@
                                             <label class="col-form-label">Picture <star>*</star></label>
                                             <input onchange="loadFile(event)" type="file" name="image" class="form-control">
                                             <small class="text-danger form-text">@error('image') {{$message}} @enderror</small>
-											<img src="{{ static_asset('uploads/tender/'.$student->image) }}" style="width:auto;height:100px;padding-top:5px;padding-bottom:2px;" class="img-fluid" id="picone"/>
+											<img src="{{ static_asset('uploads/all/'.$student->image) }}" style="width:auto;height:100px;padding-top:5px;padding-bottom:2px;" class="img-fluid" id="picone"/>
 											<script>
 											  var loadFile = function(event) {
 												var input = document.getElementById('picone');

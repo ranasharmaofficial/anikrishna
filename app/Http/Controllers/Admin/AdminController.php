@@ -141,7 +141,7 @@ class AdminController extends Controller
             $file = $request->file('courseimage');
             $extenstion = $file->getClientOriginalExtension();
             $filename = 'course-' . time() . '.' . $extenstion;
-            $file->move(public_path('uploads/courses'), $filename);
+            $file->move(public_path('uploads/all'), $filename);
         }
 
         $coursepost = Course::create([
@@ -170,7 +170,7 @@ class AdminController extends Controller
             $file = $request->file('courseimage');
             $extenstion = $file->getClientOriginalExtension();
             $filename = 'course-' . time() . '.' . $extenstion;
-            $file->move(public_path('uploads/courses'), $filename);
+            $file->move(public_path('uploads/all'), $filename);
         }
 
         if($request->courseimage!=null){
@@ -222,7 +222,7 @@ class AdminController extends Controller
             $file = $request->file('image');
             $extenstion = $file->getClientOriginalExtension();
             $filename = 'course-' . time() . '.' . $extenstion;
-            $file->move(public_path('uploads/courses'), $filename);
+            $file->move(public_path('uploads/all'), $filename);
         }
 
         $subcoursepost = SubCourse::create([
@@ -265,7 +265,7 @@ class AdminController extends Controller
             $file = $request->file('image');
             $extenstion = $file->getClientOriginalExtension();
             $filename = 'course-' . time() . '.' . $extenstion;
-            $file->move(public_path('uploads/courses'), $filename);
+            $file->move(public_path('uploads/all'), $filename);
         }
 
         if($request->image!=null){
@@ -553,7 +553,7 @@ class AdminController extends Controller
         if($request->has('image')){
             $name = $request->image->getClientOriginalName();
             $imageName = time().rand(1,999).'.'.$name;
-            $request->image->move(public_path('uploads/tender'), $imageName);
+            $request->image->move(public_path('uploads/all'), $imageName);
             $data['image'] = $imageName;
         }else{
             $data['image'] = NULL;
